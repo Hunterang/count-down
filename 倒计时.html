@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<html >
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <style>
+    #time{
+      display:block;
+      border: 1px solid lightgrey;
+      font-size: 20px;
+      text-align: center;
+      margin:50px,auto;
+    }
+    </style>
+</head>
+  <body>
+    <div id="time">倒计时开始</div>
+    <script type ="text/javascript">
+    var maxtime=30*60;
+    var tt=setInterval(function start(){
+     if(maxtime>0)
+       {
+        var mins=Math.floor(maxtime/60);
+        var secon=maxtime%60;
+        mins=check(mins);
+        secon=check(secon);
+        --maxtime;
+        console.log(mins);
+       document.getElementById("time").innerHTML="剩余时间还有"+mins+"分"+secon+"秒";
+       }
+       else{clearInterval(tt);}
+   },1000);
+     function check(i)
+     {if(i<10){
+       i="0"+i;
+       }
+       return i;
+   }
+   </script>
+  </body>
+</html>
